@@ -13,7 +13,7 @@ class Biker
   end
 
   def log_ride(ride, time) #Video method
-    return unless @acceptable_terrain.include?(ride.terrain) && ride.total_distance <= @max_distance
+    return unless can_complete_ride?(ride)
 
     @rides[ride] ||= [] #if ride already exists, keep the value, if it does not, assign it an empty array
     @rides[ride] << time
@@ -23,5 +23,9 @@ class Biker
     return false unless @rides.key?(ride)
 
     @rides[ride].min
+  end
+
+  def can_complete_ride?(ride) #helper method for log_ride and bikers_eligible
+    acceptable_terrain.include?(ride.terrain) && ride.total_distance <= max_distance
   end
 end

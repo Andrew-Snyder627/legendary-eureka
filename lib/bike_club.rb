@@ -29,4 +29,6 @@ class BikeClub
   end
 
   def bikers_eligible(ride)
+    
+  end
 end

@@ -94,4 +94,17 @@ RSpec.describe Biker do
       expect(@biker2.personal_record(@ride1)).to eq(false)
     end
   end
+
+  describe '#can_complete_ride?' do
+    it 'can determine if a biker can complete a ride' do
+      @biker.learn_terrain(:hills)
+      @biker.learn_terrain(:gravel)
+      @biker2.learn_terrain(:gravel)
+
+      expect(@biker.can_complete_ride?(@ride1)).to be true
+      expect(@biker.can_complete_ride?(@ride2)).to be true
+      expect(@biker2.can_complete_ride?(@ride1)).to be false #does not know terrain
+      expect(@biker2.can_complete_ride?(@ride2)).to be true
+    end
+  end
 end

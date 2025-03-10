@@ -29,6 +29,8 @@ class BikeClub
   end
 
   def bikers_eligible(ride)
-    
+    @bikers.select do |biker|
+      biker.can_complete_ride?(ride)
+    end
   end
 end

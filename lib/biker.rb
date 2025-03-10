@@ -12,7 +12,7 @@ class Biker
     @acceptable_terrain << terrain unless @acceptable_terrain.include?(terrain) #avoiding dupes
   end
 
-  def log_ride(ride, time)
+  def log_ride(ride, time) #Video method
     return unless @acceptable_terrain.include?(ride.terrain) && ride.total_distance <= @max_distance
 
     @rides[ride] ||= [] #if ride already exists, keep the value, if it does not, assign it an empty array

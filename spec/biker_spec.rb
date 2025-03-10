@@ -58,14 +58,14 @@ RSpec.describe Biker do
       expect(@biker.rides).to eq(expected)
     end
 
-    xit 'does not log rides if terrain is not known' do
+    it 'does not log rides if terrain is not known' do
       @biker2.log_ride(@ride1, 97.0)
       @biker2.log_ride(@ride2, 67.0)
 
       expect(@biker2.rides).to eq({})
     end
 
-    xit 'does not log rides if distance is too long' do
+    it 'does not log rides if distance is too long' do
       @biker2.learn_terrain(:gravel)
       @biker2.learn_terrain(:hills)
 
@@ -77,7 +77,7 @@ RSpec.describe Biker do
   end
 
   describe '#personal_record' do
-    xit 'returns personal record for a ride' do
+    it 'returns personal record for a ride' do
       @biker.learn_terrain(:gravel)
       @biker.learn_terrain(:hills)
 
@@ -90,7 +90,7 @@ RSpec.describe Biker do
       expect(@biker.personal_record(@ride2)).to eq(60.9)
     end
 
-    xit 'returns false if the biker has not completed a ride' do
+    it 'returns false if the biker has not completed a ride' do
       expect(@biker2.personal_record(@ride1)).to eq(false)
     end
   end

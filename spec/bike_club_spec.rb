@@ -80,7 +80,7 @@ RSpec.describe BikeClub do
   end
 
   describe '#bikers_eligible' do
-    xit 'can determine which bikers are eligible for a given ride' do
+    it 'can determine which bikers are eligible for a given ride' do
       @club.add_biker(@biker1)
       @club.add_biker(@biker2)
       @club.add_biker(@biker3)

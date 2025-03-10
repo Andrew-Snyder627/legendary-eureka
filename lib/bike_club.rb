@@ -19,6 +19,14 @@ class BikeClub
   end
 
   def best_time(ride)
-    @biker
+    bikers_with_ride = @bikers.select do |biker|
+      biker.rides.key?(ride)
+    end
+
+    bikers_with_ride.min_by do |biker|
+      biker.personal_record(ride)
+    end
   end
+
+  def bikers_eligible(ride)
 end
